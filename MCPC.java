@@ -5,9 +5,6 @@
  */
 package mcpc;
 
-import java.util.LinkedList;
-import java.util.Scanner;
-
 /**
  *
  * @author ulises.corrales
@@ -18,6 +15,24 @@ public class MCPC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //cantidad de cuadrados= m*n
+        int m=6;
+        int n=6;                
+        int x=2;
+        int y=1;
+        double pasox=(double)x/n;
+        double pasoy=(double)y/m;
+        double area=pasox*pasoy;
+        double[][] valores=new double[m][n];
+        System.out.println("PasoY:"+pasoy);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {                
+                valores[i][j]= f1(pasox*(i+1),pasoy*(j+1));
+            }
+        }
+        System.out.println(Calculo.sumaRiemmann(valores, m, n, area));                
+    }
+    public static void pruebaTrapecio(){
         double[] valores=new double[6];
         
         valores[0]=0;
@@ -29,7 +44,7 @@ public class MCPC {
         
         System.out.println("Resultado por m. trapecio: "+Calculo.calculoTrapecio(0, 1, valores));
         //System.out.println("Resultado por m. Simpson: "+Calculo.calculoSimpson(2, 4, valores));
-    }   
+    }
     public static double calculoTrapecio(float limInferior,float limSuperior,double[] colImagen){
         double resultado;
         int longValores=colImagen.length;
@@ -47,9 +62,9 @@ public class MCPC {
         return resultado;
     }
     
-    
-    
-    
+    public static double f1(double x,double y){
+        return x*x+4*y*y;
+    }        
     
     //TP1
     public static void punto12(){

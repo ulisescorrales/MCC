@@ -5,6 +5,8 @@
  */
 package mcpc;
 
+import java.util.Map;
+
 /**
  *
  * @author ulises.corrales
@@ -63,5 +65,16 @@ public class Calculo {
     }
     public static double diferenciaCentral(double val1, double val2){
         return 2;
+    }
+    
+    public static float sumaRiemmann(double[][] valores,int m, int n, double area){
+        int i,j;
+        float resultado=0;        
+        for (i = 0; i < m; i++) {
+            for (j = 0;  j< n; j++) {                                                
+                resultado+=valores[i][j]*area;
+            }
+        }
+        return resultado;
     }
 }
